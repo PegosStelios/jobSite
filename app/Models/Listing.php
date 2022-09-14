@@ -10,6 +10,10 @@ class Listing extends Model {
 
     protected $guarded = [];
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
+
     public function clicks(){
         return $this->hasMany(Click::class);
     }
@@ -18,7 +22,7 @@ class Listing extends Model {
         return $this->belongsTo(User::class);
     }
 
-    public function tag(){
+    public function tags(){
         return $this->belongsToMany(Tag::class);
     }
 }
